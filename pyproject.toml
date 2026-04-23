@@ -1,7 +1,7 @@
 [project]
 name = "steam-data-pipeline"
 version = "0.1.0"
-description = "Add your description here"
+description = "ETL pipeline that ingests Steam game data from SteamSpy API,models it into a star schema using DuckDB, and serves it for analytical queries."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
