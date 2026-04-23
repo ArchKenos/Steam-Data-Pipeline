@@ -3,8 +3,8 @@ import time
 import requests
 from pathlib import Path
 
-raw_dir = Path("data") / "raw" 
-page_delay = 60 #Time to refresh page requisition
+RAW_DIR = Path("data") / "raw" 
+PAGE_DELAY = 60 #Time to refresh page requisition
 
 def fetch_page(page):
 
@@ -15,8 +15,8 @@ def fetch_page(page):
     return response.json()
 
 def save_raw_data(data, page):
-    raw_dir.mkdir(parents=True, exist_ok=True)
-    file_path = raw_dir / f"steamspy_page{page}.json"
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+    file_path = RAW_DIR / f"steamspy_page{page}.json"
     with open(file_path, "w", encoding="UTF-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
@@ -25,6 +25,7 @@ def fetch_all_games(total_pages: int = 3):
         data = fetch_page(page)
         save_raw_data(data, page)
         if (page < total_pages - 1):
-            time.sleep(page_delay)
+            time.sleep(PAGE_DELAY)
 
-fetch_all_games()
+if __name__ == "__main__":
+    fetch_all_games()
