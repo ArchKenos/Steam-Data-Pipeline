@@ -4,9 +4,9 @@ import glob
 
 RAW_DIR = Path("data") / "raw" 
 CLEAN_DIR = Path("data") / "clean" 
-data_frame = []
-def read_raw_data():
 
+def read_raw_data():
+    data_frame = []
     raw_pages = len(glob.glob('data/raw/*'))
 
     for page in range (0, raw_pages):
@@ -24,12 +24,15 @@ def read_raw_data():
 
 def save_clean_data(df):
 
-    clean_file = CLEAN_DIR / 'steamspy_cleaned.csv'
+    clean_file = CLEAN_DIR / 'steamspy_cleaned.parquet'
     clean_file.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(clean_file)
+    df.to_parquet(clean_file, index=False)
 
-if __name__ == '__main__':
+def transform():
     df = read_raw_data()
     save_clean_data(df)
+
+if __name__ == '__main__':
+    transform()
 
 
