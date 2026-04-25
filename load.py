@@ -12,9 +12,9 @@ def insert_into_table(con):
 def create_schema(con):
         con.execute('''CREATE OR REPLACE TABLE games(
                         appid              INT,
-                        name               VARCHAR(150),
-                        developer          VARCHAR(150),
-                        publisher          VARCHAR(150),
+                        name               VARCHAR(200),
+                        developer          VARCHAR(250),
+                        publisher          VARCHAR(200),
                         positive           INT,
                         negative           INT,
                         price              INT,
