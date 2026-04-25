@@ -1,6 +1,9 @@
+import  logging
 import pandas as pd
 from pathlib import Path
 import glob
+
+logger = logging.getLogger(__name__)
 
 RAW_DIR = Path("data") / "raw" 
 CLEAN_DIR = Path("data") / "clean" 
@@ -30,6 +33,7 @@ def read_raw_data():
                             'average_forever', 'average_2weeks', 
                             'median_forever', 'median_2weeks'])
         data_frame.append(df)
+        logger.info(f"Page {page} cleaned")
     df_save = pd.concat(data_frame)
 
     return df_save
@@ -40,6 +44,7 @@ def save_clean_data(df):
     clean_file = CLEAN_DIR / 'steamspy_cleaned.parquet'
     clean_file.parent.mkdir(parents=True, exist_ok=True)
     df.to_parquet(clean_file, index=False)
+    logger.info("Cleaned .parquet file created")
 
 def transform():
     df = read_raw_data()

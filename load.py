@@ -1,5 +1,8 @@
+import logging
 from pathlib import Path
 import duckdb
+
+logger = logging.getLogger(__name__)
 
 DB_PATH = Path('data') / 'steam.db'
 clean_data = Path('data/clean') / 'steamspy_cleaned.parquet'
@@ -8,6 +11,7 @@ def insert_into_table(con):
     con.execute("INSERT INTO games" \
         "            SELECT * " \
         f"            FROM read_parquet('{clean_data}')")
+    logger.info("Data inserted into 'games' table ")
     
 def create_schema(con):
         con.execute('''CREATE OR REPLACE TABLE games(
@@ -25,6 +29,8 @@ def create_schema(con):
                         owners_max         INT
                         )
                         ''')
+        logger.info("Table 'games' created")
+        
         
 def load_into_schema():
     with duckdb.connect (DB_PATH) as con:
