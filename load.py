@@ -4,13 +4,17 @@ import duckdb
 DB_PATH = Path('data') / 'steam.db'
 clean_data = Path('data/clean') / 'steamspy_cleaned.parquet'
 
-def create_table():
-    with duckdb.connect (DB_PATH) as con:
+def insert_into_table(con):
+    con.execute("INSERT INTO games" \
+        "            SELECT * " \
+        f"            FROM read_parquet('{clean_data}')")
+    
+def create_schema(con):
         con.execute('''CREATE OR REPLACE TABLE games(
                         appid              INT,
-                        name               VARCHAR(50),
-                        developer          VARCHAR(50),
-                        publisher          VARCHAR(50),
+                        name               VARCHAR(150),
+                        developer          VARCHAR(150),
+                        publisher          VARCHAR(150),
                         positive           INT,
                         negative           INT,
                         price              INT,
@@ -21,10 +25,12 @@ def create_table():
                         owners_max         INT
                         )
                         ''')
-        con.execute("INSERT INTO games" \
-        "            SELECT * " \
-        f"            FROM read_parquet('{clean_data}')")
-        con.table('games').show(max_width= 200)
+        
+def load_into_schema():
+    with duckdb.connect (DB_PATH) as con:
+        create_schema(con)
+        insert_into_table(con)
+        con.table("games").show(max_width= 200)
 
 if __name__ == '__main__':
-    create_table()
+    load_into_schema()

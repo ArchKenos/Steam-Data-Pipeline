@@ -1,11 +1,11 @@
 from extract import fetch_all_games
 from transform import transform
-from load import create_table
+from load import load_into_schema
 
 def pipeline():
-    fetch_all_games(total_pages=0)
+    fetch_all_games(total_pages=3)
     transform()
-    create_table()
+    load_into_schema()
 
 
 if __name__ == "__main__":
