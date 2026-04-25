@@ -18,7 +18,7 @@ def  separate_owners_data(df):
 
 def read_raw_data():
     data_frame = []
-    raw_pages = len(glob.glob('data/raw/*'))
+    raw_pages = len(glob.glob('data/raw/*.json'))
 
     for page in range (0, raw_pages):
         raw_file = RAW_DIR / f"steamspy_page{page}.json"
