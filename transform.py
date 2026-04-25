@@ -11,8 +11,8 @@ def  separate_owners_data(df):
 
     df["owners"] = df["owners"].str.replace(',','')
     owner_separation = df["owners"].str.split(" .. ",n=1, expand=True)
-    df["owners_min"] = owner_separation[0]
-    df["owners_max"] = owner_separation[1]
+    df["owners_min"] = owner_separation[0].astype(int)
+    df["owners_max"] = owner_separation[1].astype(int)
     df = df.drop(columns = "owners")
     return df
 
@@ -44,7 +44,7 @@ def save_clean_data(df):
 def transform():
     df = read_raw_data()
     save_clean_data(df)
-    print(df.head())
+
 if __name__ == '__main__':
     transform()
 
