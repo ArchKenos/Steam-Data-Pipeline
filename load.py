@@ -30,7 +30,6 @@ def load_into_schema():
     with duckdb.connect (DB_PATH) as con:
         create_schema(con)
         insert_into_table(con)
-        con.table("games").show(max_width= 200)
 
 if __name__ == '__main__':
     load_into_schema()
