@@ -33,12 +33,13 @@ uv run pipeline.py
 ```
 ## 📂 Project Structure
 
-extract.py    ➡️ fetches raw JSON pages from SteamSpy API  
-transform.py  ➡️ cleans data and outputs Parquet  
-load.py       ➡️ creates DuckDB schema and loads Parquet  
-pipeline.py   ➡️ orchestrates the full ETL run  
-data/raw/     📁 raw API responses (not versioned)  
-data/clean/   📁 cleaned Parquet files (not versioned)  
+- extract.py    ➡️ fetches raw JSON pages from SteamSpy API  
+- transform.py  ➡️ cleans data and outputs Parquet  
+- load.py       ➡️ creates DuckDB schema and loads Parquet  
+- pipeline.py   ➡️ orchestrates the full ETL run  
+- data/raw/     📁 raw API responses (not versioned)  
+- data/clean/   📁 cleaned Parquet files (not versioned)
+- data/steam.db 🦆 DuckDB file for SQL-base analysis (not versioned)
 
 ## 🧠 Design Decisions
 
