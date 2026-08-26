@@ -58,3 +58,7 @@ uv run pipeline.py
   While the script is fully capable of extracting the entire 90,000+game catalog, the SteamSpy API enforces a **1-minute delay** per page ⏳,
   resulting in a total ingestion window of approximately 90 minutes for the full dataset.
 - **Manual Trigger**: No pipeline scheduling — runs manually
+
+📊 BI
+  <img width="1307" height="737" alt="image" src="https://github.com/user-attachments/assets/49024c1b-fadc-4255-b6af-265092657087" />
+
