@@ -60,5 +60,6 @@ uv run pipeline.py
 - **Manual Trigger**: No pipeline scheduling — runs manually
 
 📊 BI
-  <img width="1307" height="737" alt="image" src="https://github.com/user-attachments/assets/49024c1b-fadc-4255-b6af-265092657087" />
+<img width="1302" height="730" alt="image" src="https://github.com/user-attachments/assets/fc00acc9-c4c9-4b85-9ed9-c5463a4b31b9" />
+
 
