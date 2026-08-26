@@ -59,7 +59,7 @@ uv run pipeline.py
   resulting in a total ingestion window of approximately 90 minutes for the full dataset.
 - **Manual Trigger**: No pipeline scheduling — runs manually
 
-📊 BI
-<img width="1302" height="730" alt="image" src="https://github.com/user-attachments/assets/fc00acc9-c4c9-4b85-9ed9-c5463a4b31b9" />
-
+📊 Dashboard BI - Average Rating x Price Range
+<img width="1301" height="722" alt="image" src="https://github.com/user-attachments/assets/04df38d8-9ddc-4ecf-a439-41e0786c9ec6" />
+The graph suggests that in relation to the intermediate price players tend to be harsher on higher priced games
 
